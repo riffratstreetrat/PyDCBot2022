@@ -1,27 +1,3 @@
-# PyDCBot2022
-Python Discord Bot
-import discord
-import os
-import json
-from dotenv import load_dotenv
-load_dotenv()
-
-intents = discord.Intents.default()
-intents.message_content = True
-
-client = discord.Client(intents=intents)
-
-@client.event
-async def on_ready():
-    print(f'We have logged in as {client.user}')
-
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
-
-    if message.content.startswith('$hello'):
-        await message.channel.send('Hello!')
+Base code inspired and guided by this link: https://www.freecodecamp.org/news/create-a-discord-bot-with-python/
 
 
-client.run(os.getenv('TOKEN'))
