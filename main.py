@@ -9,7 +9,9 @@ intents.message_content = True
 
 client = discord.Client(intents=intents)
 
+data = '{"counter": 0}'
 
+y = json.loads(data)
 
 
 @client.event
@@ -26,6 +28,11 @@ async def on_message(message):
 
     if message.content.startswith('$hello'):
         await message.channel.send('Do you have a dead uncle?')
+        y["counter"]+=1
+        await message.channel.send(y["counter"])
+        
+
+
        
 
 
